@@ -1,0 +1,74 @@
+# fanqie-lite  —— 由 Shadowrocket 配置转换 (mihomo / Clash.Meta)
+# 功能：番茄小说去广告 + 国内 IP 直连（其余直连，不走代理节点）
+#
+# 说明（重要）：
+#   原 Shadowrocket 配置中的 [URL Rewrite] 与 [Script](wloc 定位脚本)
+#   依赖 Shadowrocket 的 JS 引擎，mihomo 内核不支持，故未移植；
+#   原始 .conf 已保留在 reference/fanqie-lite.conf 供参考。
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+
+# 使用内置 geo 数据（离线可用）
+geodata-mode: true
+geox-url:
+  geoip: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 114.114.114.114
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
+# 无代理节点（本配置为“去广告 + 直连”型）
+proxies: []
+proxy-groups: []
+
+rules:
+  # ===== 番茄小说去广告 =====
+  - DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+  - DOMAIN,pangolin.snssdk.com,REJECT
+  - DOMAIN,extlog.snssdk.com,REJECT
+  - DOMAIN,bds.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+  - DOMAIN,gurd.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,ttcdn-tos.pstatp.com,REJECT
+  - DOMAIN,mon.snssdk.com,REJECT
+  - DOMAIN,toblog.ctobsnssdk.com,REJECT
+  - DOMAIN,mon.zijieapi.com,REJECT
+  - DOMAIN,mssdk.zijieapi.com,REJECT
+  - DOMAIN,mcs.snssdk.com,REJECT
+  - DOMAIN,i.snssdk.com,REJECT
+  - DOMAIN,is.snssdk.com,REJECT
+  - DOMAIN,i-lq.snssdk.com,REJECT
+  - DOMAIN-KEYWORD,polaris,REJECT
+  - DOMAIN-SUFFIX,novelapp.ixigua.com,REJECT
+  - DOMAIN-SUFFIX,default.ixigua.com,REJECT
+  # ===== 所有中国 IP 直连，其余也直连 =====
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT

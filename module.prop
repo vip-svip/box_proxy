@@ -1,0 +1,7 @@
+id=box_proxy
+name=Box Proxy
+version=v1.1.0
+versionCode=1100
+author=vip-svip
+description=KernelSU 在线订阅代理平台：内置 mihomo 内核，在线地址导入配置、本地文件导入与自定义编辑、多配置切换、WebUI 管理面板、开机自启 TUN 全局代理。
+updateJson=https://raw.githubusercontent.com/vip-svip/box_proxy/main/update.json

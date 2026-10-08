@@ -1,7 +1,0 @@
-id=box_proxy
-name=Box Proxy
-version=v1.0.0
-versionCode=1000
-author=vip-svip
-description=KernelSU 在线订阅代理平台，对齐 Shadowrocket 体验：在线地址导入配置、多配置槽位切换、mihomo 内核、WebUI 管理面板、开机自启 TUN 全局代理。
-updateJson=https://raw.githubusercontent.com/yourname/box-proxy/main/online/update.json

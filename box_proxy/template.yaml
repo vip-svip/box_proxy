@@ -1,0 +1,35 @@
+# Box Proxy 默认模板 (mihomo / Clash.Meta)
+# 在 WebUI 中导入自己的在线订阅地址后，本文件不会被使用。
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+proxies: []
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+      - DIRECT
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY

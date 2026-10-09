@@ -1,0 +1,10 @@
+payload:
+  - '+.lan'
+  - '+.local'
+  - '+.localhost'
+  - '+.home.arpa'
+  - '+.internal'
+  - '+.test'
+  - '+.invalid'
+  - '+.example'
+  - '+.onion'

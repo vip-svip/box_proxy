@@ -1,0 +1,7 @@
+id=box_proxy
+name=Box Proxy
+version=v1.0.0
+versionCode=1000
+author=vip-svip
+description=KernelSU 代理平台（仿 Shadowrocket）：内置 mihomo 内核、在线模块系统（模块库/一键启停/规则合并）、多协议节点导入（订阅+粘贴：vmess/vless/trojan/ss/ssr/hysteria2/hysteria/tuic/socks5/http）、节点测速选优、实时流量统计、黑白/深色主题 WebUI、备份恢复、开机自启 TUN 全局代理。
+updateJson=https://raw.githubusercontent.com/vip-svip/box_proxy/main/update.json

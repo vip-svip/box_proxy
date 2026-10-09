@@ -1,7 +1,0 @@
-payload:
-  - 'GEOIP,CN'
-  - 'DOMAIN-SUFFIX,cn'
-  - 'DOMAIN-SUFFIX,baidu.com'
-  - 'DOMAIN-SUFFIX,qq.com'
-  - 'DOMAIN-SUFFIX,taobao.com'
-  - 'DOMAIN-SUFFIX,bilibili.com'
